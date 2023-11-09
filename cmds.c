@@ -10,7 +10,7 @@ void read_cmd(char *cmd, size_t n)
         {
                 if(feof(stdin))
                 {
-                print_message("");
+                print_message(" \n");
                 exit(EXIT_SUCCESS);
                 }
                 else
@@ -28,7 +28,8 @@ void read_cmd(char *cmd, size_t n)
 }
 void exe_cmd(const char *cmd)
 {
-        char *argv[] = {"/bin/sh", "-c", NULL, NULL};
+      int status;
+	 char *argv[] = {"/bin/sh", "-c", NULL, NULL};
         char *const envp[] = {NULL};
          pid_t child_p = fork();
         argv[2] = (char*) cmd;
@@ -46,7 +47,10 @@ void exe_cmd(const char *cmd)
                 }
         }
         else
-        {
-                wait(NULL);
-        }
+	{
+		wait(&status);
+		if (WIFEXITED(status))
+			status = WEXITSTATUS(status);
+	}	if (!isatty(STDIN_FILENO))
+			exit(status);
 }

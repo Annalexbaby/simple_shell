@@ -4,7 +4,10 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/wait.h>
-void print_message(const char * prompt);
+#include <string.h>
+
+void display_prompt(void);
+void print_message(const char * command);
 int _strspn(char *s, char *accept);
 int _strlen(char *s);
 int _strlen2(const char *s);

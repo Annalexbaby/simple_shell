@@ -1,6 +1,7 @@
-#include"main.h"
+#include "main.h"
 #include<unistd.h>
 #include<stdio.h>
+
 int _strlen2(const char *s)
 {
         int a;
@@ -10,9 +11,9 @@ int _strlen2(const char *s)
         return(a);
 }
 
-void print_message(const char * prompt)
+void print_message(const char * command)
 {
-                write(STDOUT_FILENO, prompt, _strlen2(prompt));
+              write(STDOUT_FILENO, command, _strlen2(command));
 }
 
 int _strspn(char *s, char *accept)
