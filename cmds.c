@@ -42,7 +42,7 @@ void exe_cmd(const char *cmd)
         {
                 if(execve(argv[0], argv, envp) == -1)
                 {
-                perror("exceve");
+                perror("execve: ");
                 exit(EXIT_FAILURE);
                 }
         }
@@ -51,6 +51,7 @@ void exe_cmd(const char *cmd)
 		wait(&status);
 		if (WIFEXITED(status))
 			status = WEXITSTATUS(status);
-	}	if (!isatty(STDIN_FILENO))
+		if (!isatty(STDIN_FILENO))
 			exit(status);
+	}
 }
