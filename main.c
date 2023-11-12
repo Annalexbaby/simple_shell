@@ -2,14 +2,24 @@
 #include<stdio.h>
 #include<unistd.h>
 #include<stdlib.h>
-int main()
+int main(int argc, char **argv)
 {
         char cmd[120];
+	char *delim;
+
+	delim = " \n";
+	signal(SIGINT, sigint_handler);
+
+	(void)argc;
+	(void)argv;
         do
         {
 		display_prompt();
-                read_cmd(cmd, sizeof(cmd));
-                exe_cmd(cmd);
-        }while(1);
-        return(0);
+		tokenizer(cmd, delim);
+		read_cmd(cmd, sizeof(cmd));
+		exe_cmd(cmd);
+        }
+	while(1);
+        
+	return(0);
 }

@@ -13,7 +13,7 @@ int _strlen2(const char *s)
 
 void print_message(const char * command)
 {
-              write(STDOUT_FILENO, command, _strlen2(command));
+		write(STDOUT_FILENO, command, _strlen2(command));
 }
 
 int _strspn(char *s, char *accept)

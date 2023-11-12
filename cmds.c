@@ -26,7 +26,7 @@ void read_cmd(char *cmd, size_t n)
         }
 
 }
-void exe_cmd(const char *cmd)
+int exe_cmd(const char *cmd)
 {
       int status;
 	 char *argv[] = {"/bin/sh", "-c", NULL, NULL};
@@ -52,6 +52,7 @@ void exe_cmd(const char *cmd)
 		if (WIFEXITED(status))
 			status = WEXITSTATUS(status);
 		if (!isatty(STDIN_FILENO))
-			exit(status);
+			exit (status);
 	}
+	return (0);
 }
