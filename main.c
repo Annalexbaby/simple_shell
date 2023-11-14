@@ -2,9 +2,16 @@
 #include<stdio.h>
 #include<unistd.h>
 #include<stdlib.h>
+/**
+ * main - run the shell program
+ * @argc:argument count
+ * @argv:argument vector
+ *
+ * Return:0
+ */
 int main(int argc, char **argv)
 {
-        char cmd[120];
+	char cmd[120];
 	char *delim;
 
 	delim = " \n";
@@ -12,14 +19,12 @@ int main(int argc, char **argv)
 
 	(void)argc;
 	(void)argv;
-        do
-        {
+	do {
 		display_prompt();
 		tokenizer(cmd, delim);
 		read_cmd(cmd, sizeof(cmd));
 		exe_cmd(cmd);
-        }
-	while(1);
-        
-	return(0);
+	} while (1);
+
+	return (0);
 }
