@@ -1,17 +1,22 @@
 #include"main.h"
-#include<stdio.h>
-#include<unistd.h>
-#include<stdlib.h>
+
+/**
+ * main - run the shell program
+ * @argc:argument count
+ * @argv:argument vector
+ *
+ * Return:0
+ */
 int main(int argc, char **argv)
 {
-	char cmd[150];
+	char cmd[120];
 	char *delim;
 
 	delim = " \n";
 	signal(SIGINT, sigint_handler);
 
 	(void)argc;
-	(void)argv;
+	(void)argv
         do {
 		display_prompt();
 		tokenizer(cmd, delim);

@@ -11,7 +11,7 @@
 #define BUFFER_SIZE 1024
 
 void display_prompt(void);
-void print_message(const char * command);
+void print_message(const char *command);
 int _strspn(char *s, char *accept);
 int _strlen(char *s);
 int _strlen2(const char *s);
