@@ -4,7 +4,7 @@
 #include<stdlib.h>
 int main(int argc, char **argv)
 {
-        char cmd[120];
+	char cmd[150];
 	char *delim;
 
 	delim = " \n";
@@ -12,14 +12,12 @@ int main(int argc, char **argv)
 
 	(void)argc;
 	(void)argv;
-        do
-        {
+        do {
 		display_prompt();
 		tokenizer(cmd, delim);
 		read_cmd(cmd, sizeof(cmd));
 		exe_cmd(cmd);
-        }
-	while(1);
-        
+	} while(1);
+
 	return(0);
 }

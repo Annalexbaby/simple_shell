@@ -4,19 +4,19 @@
 #include<stdlib.h>
 void read_cmd(char *cmd, size_t n)
 {
-        size_t length;
-        length = 0;
+	size_t length;
+	length = 0;
         if(getline(&cmd, &n, stdin) == -1)
         {
                 if(feof(stdin))
                 {
-                print_message(" \n");
+                print_message("\n");
                 exit(EXIT_SUCCESS);
                 }
                 else
                 {
                 perror("ERROR");
-                exit(EXIT_FAILURE);
+		exit(EXIT_FAILURE);
                 }
         }
         length = _strlen(cmd);
@@ -52,7 +52,7 @@ int exe_cmd(const char *cmd)
 		if (WIFEXITED(status))
 			status = WEXITSTATUS(status);
 		if (!isatty(STDIN_FILENO))
-			exit (status);
+		exit (status);
 	}
 	return (0);
 }
