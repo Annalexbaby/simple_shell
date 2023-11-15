@@ -10,7 +10,9 @@
 void read_cmd(char *cmd, size_t n)
 {
 	size_t length;
+
 	length = 0;
+
 	if (getline(&cmd, &n, stdin) == -1)
 	{
 		if (feof(stdin))
@@ -65,7 +67,7 @@ int exe_cmd(const char *cmd)
 		if (WIFEXITED(status))
 			status = WEXITSTATUS(status);
 		if (!isatty(STDIN_FILENO))
-		exit (status);
+		exit(status);
 	}
 	return (0);
 }

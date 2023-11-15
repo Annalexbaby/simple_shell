@@ -19,6 +19,6 @@ int tokenizer(char *cmd, char *delim);
 int exe_cmd(const char *cmd);
 void read_cmd(char *cmd, size_t n);
 void sigint_handler(int signal);
-char* get_line();
+char *get_line();
 
 #endif
