@@ -20,7 +20,8 @@ char *get_line()
 	if (buf_index >= buf_size)
 	{
 		buf_size = fread(buffer, 1, BUFFER_SIZE, stdin);
-		if (buf_size == 0) {
+		if (buf_size == 0)
+		{
 		if (line_size > 0)
 		{
 			return (line);
@@ -34,11 +35,8 @@ char *get_line()
 	start = buf_index;
 	while (buf_index < buf_size && buffer[buf_index] != '\n')
 		buf_index++;
-
 	length = buf_index - start;
-
 	line = realloc(line, line_size + length + 1);
-
 	for (i = 0; i < length; i++)
 		line[line_size + i] = buffer[start + i];
 	line_size += length;
