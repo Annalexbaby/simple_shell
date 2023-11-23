@@ -47,7 +47,7 @@ void execute(char **av, char **env)
 
         if (child == 0) {
             if (execve(array[0], array, env) == -1) {
-                printf("%s: no such file or directory\n", array[0]);
+                printf("%s: no such file or directory", array[0]);
                 exit(EXIT_FAILURE);
             }
         } else {
