@@ -20,7 +20,7 @@ void execute(char **av, char **env)
 
     do {
         if (isatty(STDIN_FILENO)) {
-            printf("#cisfun");
+            printf("#cisfun\n");
         }
 
         value = getline(&input, &n, stdin);
