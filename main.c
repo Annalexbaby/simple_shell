@@ -4,7 +4,7 @@ int main(int argc, char **argv, char **envp)
 {
 	if (argc == 1)
 	{
-		execute(argv, envp);
+		execute2(argv, envp);
 	}
 	return(0);
 }

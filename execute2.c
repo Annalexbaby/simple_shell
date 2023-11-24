@@ -6,18 +6,21 @@
 #include<sys/types.h>
 #include<sys/wait.h>
 
-void execute(char **av, char **env) {
+void execute2(char **av, char **env) {
     char *input;
+    int stdout_pipe[2];
+    int stderr_pipe[2];
     size_t n;
     int i;
+    char buffer[4096];
+            ssize_t bytesRead;
     ssize_t value;
     int status;
     char *array[] = {NULL, NULL};
     pid_t child;
-    int stdout_pipe[2];
-    int stderr_pipe[2];
 
     (void)av;
+    (void)env;
     input = NULL;
     n = 0;
 
@@ -70,9 +73,6 @@ void execute(char **av, char **env) {
             close(stdout_pipe[1]);
             close(stderr_pipe[1]);
 
-            char buffer[4096];
-            ssize_t bytesRead;
-
             printf("(stdout)");
             while ((bytesRead = read(stdout_pipe[0], buffer, sizeof(buffer))) > 0) {
                 write(STDOUT_FILENO, buffer, bytesRead);
@@ -94,10 +94,14 @@ void execute(char **av, char **env) {
     } while (1);
 }
 
-int main(int argc, char **argv, char **envp) {
+/**
+*
+* int main(int argc, char **argv, char **envp) {
     if (argc == 1) {
         execute(argv, envp);
     }
     return 0;
 }
+*/
+
 

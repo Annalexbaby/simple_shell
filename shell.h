@@ -6,4 +6,5 @@
 #include <sys/wait.h>
 #include <unistd.h>
 void execute(char **av, char **env);
+void execute2(char **av, char **env);
 #endif
